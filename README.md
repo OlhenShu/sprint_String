@@ -1,7 +1,7 @@
 # Welcome to Practical Test Automation
 ### Sprint 2 String. Stringbuffer. Stringbuilder. Regex
 
-### Task 3 BracketValidator Class
+### Task 3 TextFormatter Class
 Implement a reformatLines method of the **TextFormatter class**, which performs the following actions:
 
 - Replace all sequences of spaces with a single space.
