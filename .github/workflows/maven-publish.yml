@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-      - task2
+      - task3
   workflow_dispatch:
 
 jobs:
@@ -34,7 +34,7 @@ jobs:
       - name: Check Test Running
         run: |
           # Check if the specific string is in the output
-          if ! grep -q "Running task2.BracketValidator" test-log.txt; then
+          if ! grep -q "Running task3.Running task3.TextFormatter" test-log.txt; then
               echo "Test suite did not run."
               exit 1
           else
@@ -50,7 +50,7 @@ jobs:
 
       - name: Check Test Result
         run: |
-          if ! grep -q "Tests run: 34, Failures: 0, Errors: 0, Skipped: 0" test-log.txt; then
+          if ! grep -q "Tests run: 16, Failures: 0, Errors: 0, Skipped: 0" test-log.txt; then
             echo "Test results do not match expected values."
             exit 1
           fi

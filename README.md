@@ -1,25 +1,26 @@
 # Welcome to Practical Test Automation
 ### Sprint 2 String. Stringbuffer. Stringbuilder. Regex
 
-### Task 2 BracketValidator Class
-Implement a **BracketValidator class** that checks the correctness of nested brackets in a given text.</br>
-The brackets can be round (), square [], or curly {}. </br>
-Escaped brackets (sequences like \\(, \\), \\[, \\], \\{, and \\}) are not considered as brackets and should be ignored during the validation.</br>
-The method **boolean verifyBrackets(String text)** should return _true_ if the brackets in the text are correctly nested and balanced, and _false_ otherwise.
+### Task 3 BracketValidator Class
+Implement a reformatLines method of the **TextFormatter class**, which performs the following actions:
+
+- Replace all sequences of spaces with a single space.
+- Reformat the text so that the length of each line does not exceed 60 characters.
 
 #### Requirements
-- The text may contain any characters, but only the brackets should be checked for correctness.
-- Escaped brackets (e.g., \\(, \\)) should not affect the validation result.
-- An empty string is considered valid.
-- If the text is null, the method should throw a NullPointerException.
+- The input text may contain any characters, but only spaces should be replaced and line lengths adjusted.
+- An empty string is considered valid and should remain empty in the output.
+- If the input text is null, the method should throw a NullPointerException.
+
 #### Examples
-- "()" -> true
-- "()[]{}" -> true
-- "{(())}" -> true
-- "(\\())" -> true
-- "(]" -> false
-- ")(" -> false
-- "([)]" -> false
-- "This is a test with \\(escaped brackets\\)" -> true
-- "Text with [brackets] and \\[escaped brackets\\]" -> true
-- "{More (complex) examples with [various \\(types\\) of] brackets}" -> true
+- **Input text:**</br>
+  Java    was      originally developed</br>
+  by    James   Gosling at Sun Microsystems (which</br>
+  has since been</br>
+  acquired by Oracle) and released in 1995</br>
+  as a core component of Sun Microsystems' Java platform.</br>
+- **Expected output text:**</br>
+  Java was originally developed by James Gosling at Sun</br>
+  Microsystems (which has since been acquired by Oracle) and</br>
+  released in 1995 as a core component of Sun Microsystems'</br>
+  Java platform.
