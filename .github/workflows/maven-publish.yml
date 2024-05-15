@@ -34,7 +34,7 @@ jobs:
       - name: Check Test Running
         run: |
           # Check if the specific string is in the output
-          if ! grep -q "Running task3.Running task3.TextFormatter" test-log.txt; then
+          if ! grep -q "Running task3.TextFormatter" test-log.txt; then
               echo "Test suite did not run."
               exit 1
           else
