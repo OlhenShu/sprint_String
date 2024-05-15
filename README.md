@@ -1,13 +1,25 @@
 # Welcome to Practical Test Automation
 ### Sprint 2 String. Stringbuffer. Stringbuilder. Regex
 
-### Task 1 RomanNumeralConverter Class
-Create a **static String intToRoman(int number) method** in the RomanNumeralConverter class to convert an integer to Roman numerals.</br>
-The number must be positive and not exceed 3999. </br>
-Otherwise, throw an IllegalArgumentException.</br>
+### Task 2 BracketValidator Class
+Implement a **BracketValidator class** that checks the correctness of nested brackets in a given text.</br>
+The brackets can be round (), square [], or curly {}. </br>
+Escaped brackets (sequences like \\(, \\), \\[, \\], \\{, and \\}) are not considered as brackets and should be ignored during the validation.</br>
+The method **boolean verifyBrackets(String text)** should return _true_ if the brackets in the text are correctly nested and balanced, and _false_ otherwise.
 
-**Example:**
-
-_For a given sequence of integer numbers:_ 5, 9, 19, 91, 3999, you should get: V, IX, XIX, XCI, MMMCMXCIX
-
-More info by link: https://en.wikipedia.org/wiki/Roman_numerals
+#### Requirements
+- The text may contain any characters, but only the brackets should be checked for correctness.
+- Escaped brackets (e.g., \\(, \\)) should not affect the validation result.
+- An empty string is considered valid.
+- If the text is null, the method should throw a NullPointerException.
+#### Examples
+- "()" -> true
+- "()[]{}" -> true
+- "{(())}" -> true
+- "(\\())" -> true
+- "(]" -> false
+- ")(" -> false
+- "([)]" -> false
+- "This is a test with \\(escaped brackets\\)" -> true
+- "Text with [brackets] and \\[escaped brackets\\]" -> true
+- "{More (complex) examples with [various \\(types\\) of] brackets}" -> true
