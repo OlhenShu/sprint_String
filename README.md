@@ -1,35 +1,13 @@
-# Welcome to PRACTICAL TEST AUTOMATION
+# Welcome to Practical Test Automation
+### Sprint 2 String. Stringbuffer. Stringbuilder. Regex
 
-You can begin by cloning the repository to your computer using the command below:
-```sh
-git clone <url>
-```
-You can copy the URL in the following way:
+### Task 1 RomanNumeralConverter Class
+Create a **static String intToRoman(int number) method** in the RomanNumeralConverter class to convert an integer to Roman numerals.</br>
+The number must be positive and not exceed 3999. </br>
+Otherwise, throw an IllegalArgumentException.</br>
 
-<img width="968" alt="Screenshot 2022-05-10 at 23 06 42" src="https://user-images.githubusercontent.com/61456363/167713268-c89a4125-9467-47a6-a2d8-eb6fcefcc1dd.png">
+**Example:**
 
+_For a given sequence of integer numbers:_ 5, 9, 19, 91, 3999, you should get: V, IX, XIX, XCI, MMMCMXCIX
 
-This sprint includes several tasks with unit tests for these tasks located in separate branches **task1**, **task2**, **task3** and other.  
-
-
-You can switch between branches by using a specific command:
-```sh
- git checkout <branch name>
-```
- e.g.
-```sh
- git checkout task1
- ```
- > Remember to commit your code before switching to a different branch!
-
-In the **main** folder, first, you need to finalize your code by implementing the solution for the task.
-
-Then, uncomment all the tests in the **test** folder and execute the code using the command:
-```sh
-mvn test
-```
-or (if you haven't installed Maven on your PC) you can use the Maven wrapper script with:
-```sh
-./mvnw test
-```
-or use the `Run` command from your IDE to execute the tests.
+More info by link: https://en.wikipedia.org/wiki/Roman_numerals
