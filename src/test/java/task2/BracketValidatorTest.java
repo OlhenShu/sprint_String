@@ -39,17 +39,17 @@ public class BracketValidatorTest {
 
     @Test
     public void checkBackslashRoundBrackets() {
-        assertTrue(bracketValidator.verifyBrackets("(\\())"));
+        assertFalse(bracketValidator.verifyBrackets("(\\())"));
     }
 
     @Test
     public void checkBackslashSquareBrackets() {
-        assertTrue(bracketValidator.verifyBrackets("[\\[]]"));
+        assertFalse(bracketValidator.verifyBrackets("[\\[]]"));
     }
 
     @Test
     public void checkBackslashCurlyBrackets() {
-        assertTrue(bracketValidator.verifyBrackets("{\\{}}"));
+        assertFalse(bracketValidator.verifyBrackets("{\\{}}"));
     }
 
     @Test
