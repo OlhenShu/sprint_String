@@ -16,7 +16,7 @@ The method **boolean verifyBrackets(String text)** should return _true_ if the b
 - "()" -> true
 - "()[]{}" -> true
 - "{(())}" -> true
-- "(\\())" -> true
+- "(\\())" -> false
 - "(]" -> false
 - ")(" -> false
 - "([)]" -> false
