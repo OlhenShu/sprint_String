@@ -20,7 +20,12 @@ class PalindromeCheckerTest {
             "1a2b2a1",
             "A Santa at NASA",
             "12321",
-            "!@#$%^&*()"
+            "!@#$%^&*()",
+            "Race car",
+            "Taco cat",
+            "UFO tofu",
+            "Step on no pets",
+            "Mr. Owl ate my metal worm"
         );
     }
 
@@ -64,5 +69,41 @@ class PalindromeCheckerTest {
     void testNonPalindromeStrings(String input) {
         assertFalse(PalindromeChecker.isPalindrome(input),
                     "The string should not be identified as a palindrome: " + input);
+    }
+
+    @Test
+    @DisplayName("Empty string (should be considered a palindrome)")
+    void testEmptyString() {
+        assertTrue(PalindromeChecker.isPalindrome(""),
+                  "An empty string should be considered a palindrome");
+    }
+
+    @Test
+    @DisplayName("String with only spaces (should be considered a palindrome)")
+    void testOnlySpaces() {
+        assertTrue(PalindromeChecker.isPalindrome("   "),
+                  "A string with only spaces should be considered a palindrome after cleaning");
+    }
+
+    @Test
+    @DisplayName("Case insensitivity test")
+    void testCaseInsensitivity() {
+        assertTrue(PalindromeChecker.isPalindrome("Racecar"),
+                  "The method should ignore case when checking for palindromes");
+    }
+
+    @Test
+    @DisplayName("Very long palindrome (performance test)")
+    void testVeryLongPalindrome() {
+        // Create a palindrome with 10,000 characters
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < 5000; i++) {
+            sb.append('a');
+        }
+        String halfPalindrome = sb.toString();
+        String palindrome = halfPalindrome + halfPalindrome;
+
+        assertTrue(PalindromeChecker.isPalindrome(palindrome),
+                  "The method should handle very long palindromes efficiently");
     }
 }

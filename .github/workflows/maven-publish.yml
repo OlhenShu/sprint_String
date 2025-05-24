@@ -50,13 +50,13 @@ jobs:
 
       - name: Check Test Result
         run: |
-          if ! grep -q "Tests run: 19, Failures: 0, Errors: 0, Skipped: 0" test-log.txt; then
+          if ! grep -q "Tests run: 28, Failures: 0, Errors: 0, Skipped: 0" test-log.txt; then
             echo "Test results do not match expected values."
             exit 1
           fi
 
       - name: Save test logs
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: test-log
           path: test-log.txt
