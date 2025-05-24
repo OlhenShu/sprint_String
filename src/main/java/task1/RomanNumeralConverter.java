@@ -1,13 +1,12 @@
 package task1;
 
+/**
+ * Converts an integer to its Roman numeral representation.
+ */
 public class RomanNumeralConverter {
     public static String intToRoman(int number) {
         return "";
-        //your code
-    }
-
-    public static void main(String[] args) {
-        //your code
+        //your solution here
     }
 
 }
