@@ -1,35 +1,61 @@
-# Welcome to PRACTICAL TEST AUTOMATION
+# Advanced Test Automation (Java) with Selenium
 
-You can begin by cloning the repository to your computer using the command below:
+## Getting Started
+
+### Clone the Repository
+To begin working with this project, clone the repository to your local machine using the following command:
+
 ```sh
 git clone <url>
 ```
-You can copy the URL in the following way:
+
+You can copy the repository URL as shown below:
 
 <img width="968" alt="Screenshot 2022-05-10 at 23 06 42" src="https://user-images.githubusercontent.com/61456363/167713268-c89a4125-9467-47a6-a2d8-eb6fcefcc1dd.png">
 
+## Project Structure
 
-This sprint includes several tasks with unit tests for these tasks located in separate branches **task1**, **task2**, **task3** and other.  
+This sprint is organized into multiple tasks, each with its corresponding unit tests. These tasks are located in separate branches: **task1**, **task2**, **task3**, etc.
 
+### Switching Between Tasks
 
-You can switch between branches by using a specific command:
+To switch to a specific task branch, use the following command:
+
 ```sh
- git checkout <branch name>
+git checkout <branch name>
 ```
- e.g.
+
+For example:
+
 ```sh
- git checkout task1
- ```
- > Remember to commit your code before switching to a different branch!
+git checkout task1
+```
 
-In the **main** folder, first, you need to finalize your code by implementing the solution for the task.
+> **Important:** Always commit your changes before switching to a different branch to avoid losing your work!
 
-Then, uncomment all the tests in the **test** folder and execute the code using the command:
+## Workflow
+
+1. Navigate to the **main** folder and implement your solution for the current task
+2. Uncomment all the tests in the **test** folder
+3. Run the tests using one of the following methods:
+
+### Running Tests
+
+Using Maven:
 ```sh
 mvn test
 ```
-or (if you haven't installed Maven on your PC) you can use the Maven wrapper script with:
+
+If Maven is not installed on your system, use the Maven wrapper:
+
+For Windows:
+```sh
+mvnw.cmd test
+```
+
+For Unix-based systems (Linux, macOS):
 ```sh
 ./mvnw test
 ```
-or use the `Run` command from your IDE to execute the tests.
+
+Alternatively, you can execute the tests directly from your IDE using the `Run` command.

@@ -1,0 +1,43 @@
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Fetch all branches
+        run: git fetch --all
+
+      - name: Get latest commits from task branches
+        id: collect
+        run: |
+          echo "## Task Completion Status" > task-status.md
+
+          for task in task1 task2 task3 task4; do
+            if git show-ref --verify --quiet refs/remotes/origin/$task; then
+              COMMIT=$(git rev-parse origin/$task)
+              echo "✅ $task — [\${COMMIT:0:7}](https://github.com/${{ github.repository }}/commit/$COMMIT)" >> task-status.md
+            else
+              echo "❌ $task — missing branch" >> task-status.md
+            fi
+          done
+
+      - name: Configure Git
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+
+      - name: Commit status report
+        run: |
+          git pull origin main
+          git add task-status.md
+          git commit -m "Add task completion report" || echo "No changes to commit"
+          git push origin main
