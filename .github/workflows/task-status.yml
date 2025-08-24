@@ -7,6 +7,8 @@ permissions:
 jobs:
   verify:
     runs-on: ubuntu-latest
+    outputs:
+      all_tasks_completed: ${{ steps.collect.outputs.all_tasks_completed }}
     steps:
       - name: Checkout main
         uses: actions/checkout@v4
@@ -21,14 +23,19 @@ jobs:
         run: |
           echo "## Task Completion Status" > task-status.md
 
+          all_tasks_completed=true
+
           for task in task1 task2 task3 task4; do
             if git show-ref --verify --quiet refs/remotes/origin/$task; then
               COMMIT=$(git rev-parse origin/$task)
               echo "✅ $task — [\${COMMIT:0:7}](https://github.com/${{ github.repository }}/commit/$COMMIT)" >> task-status.md
             else
               echo "❌ $task — missing branch" >> task-status.md
+              all_tasks_completed=false
             fi
           done
+
+          echo "all_tasks_completed=$all_tasks_completed" >> $GITHUB_OUTPUT
 
       - name: Configure Git
         run: |
@@ -41,3 +48,11 @@ jobs:
           git add task-status.md
           git commit -m "Add task completion report" || echo "No changes to commit"
           git push origin main
+
+  success_action:
+    needs: verify
+    if: needs.verify.outputs.all_tasks_completed == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Success Message
+        run: echo "All tasks have been completed successfully! You can now proceed with further actions."
